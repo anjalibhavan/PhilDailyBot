@@ -1,6 +1,6 @@
-from pickings import *
-from aeon import *
-from ald import *
+from modules.pickings import *
+from modules.aeon import *
+from modules.ald import *
 import lxml
 import os
 import random
@@ -9,13 +9,20 @@ import requests
 import telepot
 from bs4 import BeautifulSoup
 import urllib.request
+import logging
+
+# Enable logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
+
+logger = logging.getLogger(__name__)
 
 YOUR_TOKEN = '686403591:AAGsQLfGe2ffNFdsD37rPCwtdKq5iMdfq4c'
 WELCOME = 'Welcome! I am PhilDailyBot, here to give you your dose of philosophy, life, love and everything else in between! Type /brainpickings for an article from Brain Pickings, /aeon for an article from Aeon and /ald for an article from Arts and Letters Daily.'
 
 
 def brain_pickings(bot,update):
-    final_reply = pickings.get_pickings()
+    final_reply = get_pickings()
     bot.send_message(chat_id=update.message.chat_id,text=final_reply)
     
 
@@ -25,13 +32,17 @@ def my_start(bot,update):
     
 
 def aeonco(bot,update):
-    final_reply = aeon.get_aeon()
+    final_reply = get_aeon()
     bot.send_message(chat_id=update.message.chat_id,text=final_reply)
     
 
 def aldaily(bot,update):
-    final_reply =ald.get_ald()
+    final_reply = get_ald()
     bot.send_message(chat_id=update.message.chat_id,text=final_reply)
+
+def error(bot, update, error):
+    """Log Errors caused by Updates."""
+    logger.warning('Update "%s" caused error "%s"', update, error)
     
     
 
@@ -43,6 +54,7 @@ dispatcher.add_handler(CommandHandler('start', my_start))
 dispatcher.add_handler(CommandHandler('brainpickings', brain_pickings))
 dispatcher.add_handler(CommandHandler('aeon', aeonco))
 dispatcher.add_handler(CommandHandler('ald', aldaily))
+dispatcher.add_error_handler(error)
 
 updater.start_polling()
 print('it is happening!')
