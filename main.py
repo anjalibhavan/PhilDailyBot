@@ -17,7 +17,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 logger = logging.getLogger(__name__)
 
-YOUR_TOKEN = '686403591:AAGsQLfGe2ffNFdsD37rPCwtdKq5iMdfq4c'
+YOUR_TOKEN = 'secret!'
 WELCOME = 'Welcome! I am PhilDailyBot, here to give you your dose of philosophy, life, love and everything else in between! Type /brainpickings for an article from Brain Pickings, /aeon for an article from Aeon and /ald for an article from Arts and Letters Daily.'
 
 
