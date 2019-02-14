@@ -18,7 +18,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 YOUR_TOKEN = 'secret!'
-WELCOME = 'Welcome! I am PhilDailyBot, here to give you your dose of philosophy, life, love and everything else in between! Type /brainpickings for an article from Brain Pickings, /aeon for an article from Aeon and /ald for an article from Arts and Letters Daily.'
+WELCOME = 'Welcome! I am PhilDailyBot, here to give you your dose of philosophy, life, love and everything else in between! \n Type the following commands for making use of this bot. \n /brainpickings for an article from Brain Pickings \n /aeon for an article from Aeon \n /ald for an article from Arts and Letters Daily.'
 
 
 def brain_pickings(bot,update):
