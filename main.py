@@ -14,24 +14,24 @@ YOUR_TOKEN = '686403591:AAGsQLfGe2ffNFdsD37rPCwtdKq5iMdfq4c'
 WELCOME = 'Welcome! I am PhilDailyBot, here to give you your dose of philosophy, life, love and everything else in between! Type /brainpickings for an article from Brain Pickings, /aeon for an article from Aeon and /ald for an article from Arts and Letters Daily.'
 
 
-def brain_pickings():
+def brain_pickings(bot,update):
     final_reply = pickings.get_pickings()
-    bot.sendMessage(text=final_reply,parse_mode='html')
+    bot.send_message(chat_id=update.message.chat_id,text=final_reply)
     
 
-def my_start():
+def my_start(bot,update):
     final_reply = WELCOME
-    bot.sendMessage(text=final_reply)
+    bot.send_message(chat_id=update.message.chat_id,text=final_reply)
     
 
-def aeonco():
+def aeonco(bot,update):
     final_reply = aeon.get_aeon()
-    bot.sendMessage(text=final_reply,parse_mode='html')
+    bot.send_message(chat_id=update.message.chat_id,text=final_reply)
     
 
-def aldaily():
+def aldaily(bot,update):
     final_reply =ald.get_ald()
-    bot.sendMessage(text=final_reply,parse_mode='html')
+    bot.send_message(chat_id=update.message.chat_id,text=final_reply)
     
     
 
