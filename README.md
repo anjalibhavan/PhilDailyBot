@@ -12,4 +12,4 @@
   python main.py
   ```
   
-on the command line. Then search for @PhilDailyBot on Telegram and initialize it with '\start' You will get all further commands automatically from the bot itself.</p>
+on the command line. Then search for @PhilDailyBot on Telegram and initialize it with '\start'. You will get all further commands automatically from the bot itself.</p>
